@@ -1,0 +1,22 @@
+#profile_page {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+#profile_page > img {
+  border-radius: 100%;
+  border: 1px solid #333;
+  width: 12em;
+  height: 12em;
+  margin-top: 3em;
+}
+
+#name {
+  margin-top: 1em;
+  font-size: 3em;
+  margin-bottom: 0.25em;
+}
+
+#change_password {
+  margin-top: 5em;
+}
