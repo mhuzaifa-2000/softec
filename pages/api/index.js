@@ -14,14 +14,15 @@ export const getPatientData = async (patientID) => {
   var snap = {};
   try {
     snap = await getDoc(doc(db, "patient", patientID));
+    if (snap.exists()) {
+      return { id: patientID, ...snap.data() };
+    } else {
+      return {};
+    }
   } catch (err) {
     console.log(err);
   }
-  if (snap.exists()) {
-    return { id: patientID, ...snap.data() };
-  } else {
-    return {};
-  }
+
   //   const q = query(collection(db, "patient"),where(d));
   //   const patient = [];
   //   const querySnapshot = await getDocs(q);

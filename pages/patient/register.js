@@ -12,14 +12,7 @@ export default function PatientRegister() {
   };
   const [formData, updateFormData] = useState(initialFormData);
 
-  const handleChange = (e) => {
-    updateFormData({
-      ...formData,
-
-      // Trimming any whitespace
-      [e.target.name]: e.target.value,
-    });
-  };
+  const handleChange = (e) => {};
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);

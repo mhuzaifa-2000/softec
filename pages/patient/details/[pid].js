@@ -6,15 +6,18 @@ export default function PatientDetails() {
   const [patient, setPatient] = useState({});
   const router = useRouter();
   const { pid } = router.query;
-  useEffect(async () => {
-    const data = await getPatientData(pid);
-    await addPatient();
-    if (data) {
-      setPatient(data);
-      console.log(patient);
-    } else {
-      router.push("/");
-    }
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getPatientData(pid);
+      if (data) {
+        setPatient(data);
+        console.log(patient);
+      } else {
+        router.push("/");
+      }
+      return data;
+    };
+    getData();
   }, []);
   return (
     <div className="flex space-between p-5 w-full mx-10 rounded-md shadow-lg bg-slate-200 max-h-fit">
